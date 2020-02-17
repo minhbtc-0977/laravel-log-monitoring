@@ -19,12 +19,24 @@ class MonitoringServiceProvider extends ServiceProvider
     ];
 
     /**
-     * Register the service provider.
+     *
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        //
+    }
+
+    /**
+     * Register any application services.
      *
      * @return void
      */
     public function register()
     {
         $this->commands($this->services);
+        $this->app->singleton(AppLoggingListener::class);
     }
 }
